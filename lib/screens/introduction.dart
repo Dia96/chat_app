@@ -1,3 +1,4 @@
+import 'package:chat_app/screens/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
@@ -43,7 +44,7 @@ class _IntroductionState extends State<Introduction> {
         done: Text('Done', style: TextStyle(color: Colors.black),
         ),
         onDone: () {
-         // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
         },
         pages: getPages(),
         globalBackgroundColor: Colors.white,
