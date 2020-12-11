@@ -1,4 +1,6 @@
 
+import 'package:chat_app/home/contacts.dart';
+import 'package:chat_app/home/groups.dart';
 import 'package:chat_app/main.dart';
 import 'package:chat_app/screens/login.dart';
 import 'package:chat_app/screens/mainscreen.dart';
@@ -290,7 +292,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
           body: TabBarView(
-              children: <Widget>[]),
+              children: <Widget>[
+                Contacts(),
+                Groups()
+              ]),
         ),
       ),
     );
