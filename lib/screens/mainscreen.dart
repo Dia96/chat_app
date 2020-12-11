@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:chat_app/home/homescreen.dart';
 import 'package:chat_app/main.dart';
 import 'package:chat_app/screens/login.dart';
 import 'package:chat_app/screens/mapscreen.dart';
@@ -141,7 +142,7 @@ class _MainScreenState extends State<MainScreen>
 
                   GestureDetector(
                     onTap: () {
-                      //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
                     },
                     child: Align(
                       alignment: Alignment.topCenter,
