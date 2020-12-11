@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:chat_app/main.dart';
 import 'package:chat_app/screens/login.dart';
+import 'package:chat_app/screens/mapscreen.dart';
 import 'package:circular_menu/circular_menu.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -34,41 +35,29 @@ class _MainScreenState extends State<MainScreen>
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
-      backgroundColor: Colors.cyan[800],
-
+      resizeToAvoidBottomPadding: false, backgroundColor: Colors.cyan[800],
       floatingActionButton: CircularMenu(
         animationDuration: Duration(milliseconds: 10),
-        toggleButtonPadding: 10,
-        alignment: Alignment.bottomCenter,
+        toggleButtonPadding: 10, alignment: Alignment.bottomCenter,
         curve: Curves.fastOutSlowIn,
-
-        toggleButtonBoxShadow: [
-          BoxShadow(color: Colors.cyan[400],
+        toggleButtonBoxShadow: [BoxShadow(color: Colors.cyan[400],
               spreadRadius: 2, blurRadius: 5)],
         toggleButtonIconColor: PrimaryColor,
-        toggleButtonColor: SecondaryColor,
-        items: [
+        toggleButtonColor: SecondaryColor, items: [
           CircularMenuItem(icon: Icons.info,
-              boxShadow: [
-                BoxShadow(color: Colors.cyan[400], spreadRadius: 2,
+              boxShadow: [BoxShadow(color: Colors.cyan[400], spreadRadius: 2,
                     blurRadius: 5)],
               color: SecondaryColor, iconColor: PrimaryColor,
               onTap: () {}),
-          CircularMenuItem(icon: Icons.settings,
-              boxShadow: [
-                BoxShadow(color: Colors.cyan[400],
-                    spreadRadius: 2, blurRadius: 5
-                )],
+          CircularMenuItem(icon: Icons.settings, boxShadow: [
+            BoxShadow(color: Colors.cyan[400], spreadRadius: 2, blurRadius: 5)],
               color: SecondaryColor, iconColor: PrimaryColor,
               onTap: () {
                 //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SettingScreen()));
               }),
 
-          CircularMenuItem(icon: Icons.rate_review,
-              boxShadow: [
-                BoxShadow(color: Colors.cyan[400], spreadRadius: 2,blurRadius: 5
-                )],
+          CircularMenuItem(icon: Icons.rate_review, boxShadow: [
+            BoxShadow(color: Colors.cyan[400], spreadRadius: 2,blurRadius: 5)],
               color: SecondaryColor, iconColor: PrimaryColor,
               onTap: () {}
           ),
@@ -180,21 +169,17 @@ class _MainScreenState extends State<MainScreen>
 
                   GestureDetector(
                     onTap: () {
-                     // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => GoogleScreen()));
+                     Navigator.pushReplacement(context,
+                         MaterialPageRoute(builder: (context) => GoogleScreen()));
                     },
-                    child: Container(
-                      height: 150,
-                      width: 200,
+                    child: Container(height: 150, width: 200,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(100.0),),
                         gradient: LinearGradient(colors: <Color>[
                           Colors.cyan[100],
-                          Colors.cyan[700]
-                        ]),
-                      ),
+                          Colors.cyan[700]]),),
                       child: Text('LOCATE', style: TextStyle(
-                          color: Colors.grey[800],
-                          fontWeight: FontWeight.bold,
+                          color: Colors.grey[800], fontWeight: FontWeight.bold,
                           fontSize: 30)),
                       alignment: Alignment.bottomCenter,
                     ),
