@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:chat_app/main.dart';
 import 'package:chat_app/screens/mainscreen.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,93 +11,53 @@ class GoogleScreen extends StatefulWidget {
   @override
   _GoogleScreenState createState() => _GoogleScreenState();
 }
-
 class _GoogleScreenState extends State<GoogleScreen> {
   GoogleMapController mapController;
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () {
+    return WillPopScope(onWillPop: () {
         Navigator.pushReplacement(context, MaterialPageRoute(
-            builder: (context) => MainScreen()
-        ));
+            builder: (context) => MainScreen()));
       },
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        resizeToAvoidBottomPadding: false,
-        appBar: AppBar(
-          backgroundColor: PrimaryColor,
-          leading: IconButton(
-              icon: Icon(FontAwesomeIcons.arrowLeft),
-              onPressed: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(
-                    builder: (context) => MainScreen()
-                ));
+      child: Scaffold(resizeToAvoidBottomInset: false, resizeToAvoidBottomPadding: false,
+        appBar: AppBar(backgroundColor: PrimaryColor, leading: IconButton(
+            icon: Icon(FontAwesomeIcons.arrowLeft),
+            onPressed: () {Navigator.pushReplacement(context,MaterialPageRoute(
+                builder: (context) => MainScreen()));
               }),
-          title: Text('Location'),
-        ),
-
-        floatingActionButton: BoomMenu(
-          fabAlignment: Alignment.bottomCenter,
-          elevation: 10,
-          animatedIcon: AnimatedIcons.menu_close,
-          backgroundColor: PrimaryColor,
-          animatedIconTheme: IconThemeData(size: 22.0),
-          //child: Icon(Icons.add),
-          onOpen: () {},
-          onClose: () {},
-          //scrollVisible: scrollVisible,
-          overlayColor: Colors.black,
-          overlayOpacity: 0.7,
-          children: [
-            MenuItem(
-              elevation: 20,
-              child:
-              Icon(FontAwesomeIcons.toggleOff, color: Colors.white),
-              title: 'Ghost Mode',
-              titleColor: Colors.white,
-              subtitle:'See others location without sharing yours',
-              subTitleColor: Colors.white,
-              backgroundColor: PrimaryColor,
-              onTap: () {},
+          title: Text('Location')),
+        floatingActionButton: BoomMenu(fabAlignment: Alignment.bottomCenter,
+          elevation: 10, animatedIcon: AnimatedIcons.menu_close,
+          backgroundColor: PrimaryColor, animatedIconTheme: IconThemeData(size: 22.0),
+          onOpen: () {}, onClose: () {},
+          overlayColor: Colors.black, overlayOpacity: 0.7,
+          children: [MenuItem(elevation: 20,
+            child: Icon(FontAwesomeIcons.toggleOff, color: Colors.white),
+            title: 'Ghost Mode', titleColor: Colors.white,
+            subtitle:'See others location without sharing yours',
+            subTitleColor: Colors.white, backgroundColor: PrimaryColor,
+            onTap: () {},
             ),
-            MenuItem(
-              elevation: 20,
+            MenuItem(elevation: 20,
               child: Icon(Icons.location_disabled, color: Colors.white),
-              title: 'Disable location',
-              titleColor: Colors.white,
-              subtitle: 'No access to location',
-              subTitleColor: Colors.white,
+              title: 'Disable location', titleColor: Colors.white,
+              subtitle: 'No access to location', subTitleColor: Colors.white,
               backgroundColor: PrimaryColor,
               onTap: () {},
             ),
-            MenuItem(
-              elevation: 20,
-              child: Icon(Icons.share, color: Colors.white),
-              title: 'Share location',
-              titleColor: Colors.white,
+            MenuItem(elevation: 20, child: Icon(Icons.share, color: Colors.white),
+              title: 'Share location', titleColor: Colors.white,
               subtitle: 'Share your live location with anyone',
-              subTitleColor: Colors.white,
-              backgroundColor: PrimaryColor,
+              subTitleColor: Colors.white, backgroundColor: PrimaryColor,
               onTap: () {},
-            ),
-          ],
-        ),
+            )]),
 
-        body: Stack(
-          children: <Widget>[
-            _buildGoogleMap(context),
-
-            Container(
-
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-              ),
+        body: Stack(children: <Widget>[_buildGoogleMap(context),
+          Container(decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30)),
               width: MediaQuery.of(context).size.width,
-              child: SearchMapPlaceWidget(
-                hasClearButton: true,
-                placeType: PlaceType.address,
-                placeholder: 'Enter the location',
+              child: SearchMapPlaceWidget(hasClearButton: true,
+                placeType: PlaceType.address, placeholder: 'Enter the location',
                 apiKey: 'AIzaSyDeuBdq7DQtD98zgmGbD5NMFA2kmmFAKYo',
                 onSelected: (Place place) async {
                   Geolocation geolocation = await place.geolocation;
@@ -116,12 +75,9 @@ class _GoogleScreenState extends State<GoogleScreen> {
   }
 
   Widget _buildGoogleMap(BuildContext context) {
-    return Container(
-      child: GoogleMap(
-        zoomControlsEnabled: false,
+    return Container(child: GoogleMap(zoomControlsEnabled: false,
         onMapCreated: (GoogleMapController googleMapController) {
-          setState(() {
-            mapController = googleMapController;
+          setState(() {mapController = googleMapController;
           });
         },
         initialCameraPosition: CameraPosition(
