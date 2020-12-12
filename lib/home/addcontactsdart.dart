@@ -1,4 +1,5 @@
 import 'package:chat_app/main.dart';
+import 'package:chat_app/screens/chat.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,9 @@ class AddContacts extends StatelessWidget {
                       print('NETWORK IMAGE: ' + documentSnapshot.data()['name'].toString() +
                           documentSnapshot.data()['photoUrl'].toString());
                       return Card(color: Colors.cyan[100],
-                        child: ListTile(onTap: () {},
+                        child: ListTile(onTap: () {
+                          Navigator.pushReplacement(context, new MaterialPageRoute(builder: (context) => ChatScreen()));
+                        },
                           leading: CircleAvatar(radius: 30,
                             backgroundImage: NetworkImage(documentSnapshot.data()['photoUrl']),),
                           title: Text(documentSnapshot.data()['name']),
