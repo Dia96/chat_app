@@ -119,7 +119,7 @@ class _MainScreenState extends State<MainScreen>
 
                   GestureDetector(
                     onTap: () {
-                     // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
                     },
                     child: Container(
                       height: 150,
@@ -188,7 +188,7 @@ class _MainScreenState extends State<MainScreen>
 
                   GestureDetector(
                     onTap: () {
-                     // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => GoogleScreen()));
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => GoogleScreen()));
                     },
                     child: Align(
                       alignment: Alignment.topCenter,

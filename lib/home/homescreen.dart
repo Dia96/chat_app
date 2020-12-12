@@ -2,6 +2,7 @@
 import 'package:chat_app/home/addcontactsdart.dart';
 import 'package:chat_app/home/calls.dart';
 import 'package:chat_app/home/contacts.dart';
+import 'package:chat_app/home/dialogue.dart';
 import 'package:chat_app/home/groups.dart';
 import 'package:chat_app/main.dart';
 import 'package:chat_app/screens/login.dart';
@@ -274,7 +275,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     child: GestureDetector(
                       onTap: () async {
-                        //final action = await Dialogs.yesAbortDialog(context, 'Exit Alert', 'Are you sure you want to Exit?');
+                        final action = await Dialogs.yesAbortDialog(context, 'Exit Alert', 'Are you sure you want to Exit?');
                       },
                       child: ListTile(title: Text('Exit', style: TextStyle(
                         color: Colors.black87,
