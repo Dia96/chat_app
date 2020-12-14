@@ -96,11 +96,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     Padding(padding: EdgeInsets.only(left: 15)),
                     GestureDetector(onTap: () => googleSignIn().whenComplete(()
                     async {
-                      await  FirebaseFirestore.instance.collection("user").add(
+                      
+                      await FirebaseFirestore.instance.collection('user').where('email', isEqualTo: email).limit(1).get();
+                      
+                     /* await  FirebaseFirestore.instance.collection("user").add(
                               {'email': email,
                                 'name' : name,
                                 'photoUrl' : photoUrl,
-                              }).then((value){print(value.id);});
+                              }).then((value){print(value.id);});*/
+                      
                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainScreen()));
                         }),
                         child: Text('Sign in with Google', style: TextStyle(fontSize: 18),))

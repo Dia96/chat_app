@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:chat_app/main.dart';
 import 'package:chat_app/screens/mainscreen.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,7 +14,8 @@ class GoogleScreen extends StatefulWidget {
   _GoogleScreenState createState() => _GoogleScreenState();
 }
 class _GoogleScreenState extends State<GoogleScreen> {
-  GoogleMapController mapController;
+ GoogleMapController mapController;
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(onWillPop: () {
@@ -83,9 +86,12 @@ class _GoogleScreenState extends State<GoogleScreen> {
         initialCameraPosition: CameraPosition(
             zoom: 15.0, target: LatLng(19.061500, 72.901056)),
         mapType: MapType.normal,
+
+
         markers: {
           Marker1,Marker2,Marker3,Marker4,Marker5,Marker6,Marker7,Marker8,Marker9
         },
+      myLocationEnabled: true,
       ),
     );
   }
