@@ -1,4 +1,3 @@
-import 'dart:html';
 
 import 'package:chat_app/main.dart';
 import 'package:chat_app/screens/mainscreen.dart';
@@ -91,7 +90,7 @@ class _GoogleScreenState extends State<GoogleScreen> {
         markers: {
           Marker1,Marker2,Marker3,Marker4,Marker5,Marker6,Marker7,Marker8,Marker9
         },
-      myLocationEnabled: true,
+      myLocationEnabled: true
       ),
     );
   }
@@ -172,3 +171,4 @@ Marker Marker9 = Marker(
     BitmapDescriptor.hueBlue,
   ),
 );
+

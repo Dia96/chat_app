@@ -43,6 +43,8 @@ dependencies:
   lite_rolling_switch: ^0.1.1
   image_picker: ^0.6.7+15
   firebase_storage: ^5.2.0
+  location_permissions: ^3.0.0+1
+  permission_handler: ^5.0.1+1
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +66,7 @@ flutter:
     - images/logo.png
     - images/googlelogo.png
     - images/applelogo.png
+    - images/locationlogo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

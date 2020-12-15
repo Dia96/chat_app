@@ -9,6 +9,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:location_permissions/location_permissions.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -155,7 +156,7 @@ class _MainScreenState extends State<MainScreen>
                               Colors.white,
                               Colors.grey
                             ]),
-                            image: DecorationImage(image: AssetImage('images/chatlogo.png'),
+                            image: DecorationImage(image: AssetImage('images/logo.png'),
                               fit: BoxFit.cover,
                             )
                         ),
@@ -188,6 +189,7 @@ class _MainScreenState extends State<MainScreen>
 
                   GestureDetector(
                     onTap: () {
+
                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => GoogleScreen()));
                     },
                     child: Align(
@@ -202,7 +204,7 @@ class _MainScreenState extends State<MainScreen>
                               Colors.grey
                             ]),
                             // color: Colors.cyan[100],
-                            image: DecorationImage(image: AssetImage('images/locationlogo.jpg'),
+                            image: DecorationImage(image: AssetImage('images/locationlogo.png'),
                               fit: BoxFit.cover,
                             )
                         ),
