@@ -61,8 +61,7 @@ class _MainScreenState extends State<MainScreen>
           CircularMenuItem(icon: Icons.rate_review, boxShadow: [
             BoxShadow(color: Colors.cyan[400], spreadRadius: 2,blurRadius: 5)],
               color: SecondaryColor, iconColor: PrimaryColor,
-              onTap: () {}
-          ),
+              onTap: () {}),
 
           CircularMenuItem(icon: Icons.report_problem,
               boxShadow: [BoxShadow(color: Colors.cyan[400], spreadRadius: 2, blurRadius: 5)],
