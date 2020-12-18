@@ -93,7 +93,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontWeight: FontWeight.bold, letterSpacing: 1.0,
                               )))])),
                 SizedBox(height: 15),
-                GestureDetector(onTap: () {},
+                GestureDetector(onTap: () {
+                  
+                },
                     child: Container(decoration: BoxDecoration(
                         boxShadow: [BoxShadow(color: Colors.cyan[700],
                             blurRadius: 40.0, spreadRadius: 1.0,
