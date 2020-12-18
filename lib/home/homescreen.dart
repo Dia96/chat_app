@@ -11,6 +11,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/painting.dart';
+import 'package:chat_app/screens/myprofile.dart';
 
 class HomeScreen extends StatefulWidget {final Widget child;
   HomeScreen({Key key, this.child}) : super(key: key);
@@ -94,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               )))])),
                 SizedBox(height: 15),
                 GestureDetector(onTap: () {
-                  
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyProfile()));
                 },
                     child: Container(decoration: BoxDecoration(
                         boxShadow: [BoxShadow(color: Colors.cyan[700],
