@@ -1,4 +1,3 @@
-
 import 'package:chat_app/home/addcontactsdart.dart';
 import 'package:chat_app/home/calls.dart';
 import 'package:chat_app/home/contacts.dart';
@@ -20,8 +19,7 @@ class HomeScreen extends StatefulWidget {final Widget child;
 
 class _HomeScreenState extends State<HomeScreen> {
   TextEditingController searchTextEditingController = new TextEditingController();
-  Icon customIcon = Icon(Icons.search);
-  Widget customSearchBar = Text('ChatApp');
+  Icon customIcon = Icon(Icons.search); Widget customSearchBar = Text('ChatApp');
   @override
   Widget build(BuildContext context) {
     return WillPopScope(onWillPop: (){
@@ -39,19 +37,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
           appBar: AppBar(elevation: 10, title: customSearchBar,
             actions: <Widget>[IconButton(onPressed: () {setState(() {
-                      if(this.customIcon.icon == Icons.search) {
-                        this.customIcon=Icon(Icons.cancel);
-                        this.customSearchBar = TextField(
-                            controller: searchTextEditingController,
-                          textInputAction: TextInputAction.go,
-                          decoration: InputDecoration(border: InputBorder.none,
-                              hintText: 'Search',
-                              hintStyle: TextStyle(color: TertiaryColor)),
-                          style: TextStyle(color: TertiaryColor));
-                      }
-                      else
-                      {this.customIcon = Icon(Icons.search);
-                        this.customSearchBar = Text('ChatApp');}
+              if(this.customIcon.icon == Icons.search) {
+                this.customIcon=Icon(Icons.cancel); this.customSearchBar = TextField(
+                    controller: searchTextEditingController, textInputAction: TextInputAction.go,
+                    decoration: InputDecoration(border: InputBorder.none, hintText: 'Search', hintStyle: TextStyle(color: TertiaryColor)),
+                    style: TextStyle(color: TertiaryColor));
+              }
+              else
+                {this.customIcon = Icon(Icons.search); this.customSearchBar = Text('ChatApp');}
                     });
                   },
                   icon: customIcon
@@ -76,84 +69,52 @@ class _HomeScreenState extends State<HomeScreen> {
           drawer: Drawer(child: Container(color: SecondaryColor,
               child: ListView(children: <Widget>[
                   DrawerHeader(decoration: BoxDecoration(
-                          boxShadow:  [BoxShadow(
-                            color: Colors.cyan[600],blurRadius: 40.0,
-                            offset: Offset(1.0, 1.0))],
-                          gradient: LinearGradient(colors: <Color>[
-                            Colors.cyan[200], Colors.cyan[600]
-                          ])),
+                      boxShadow:  [BoxShadow(color: Colors.cyan[600],blurRadius: 40.0, offset: Offset(1.0, 1.0))],
+                      gradient: LinearGradient(colors: <Color>[Colors.cyan[200], Colors.cyan[600]])),
                       child: Row(children: <Widget>[
-                        Align(alignment: Alignment.centerLeft,
-                            child: CircleAvatar(radius: 40,
-                              backgroundImage: NetworkImage(photoUrl))),
-                          Padding(padding: EdgeInsets.only(right: 10)),
-
-                          Align(alignment: Alignment.center,
-                            child: Text( name, style: TextStyle(
-                              color: Colors.black87, fontSize: 18.0,
-                              fontWeight: FontWeight.bold, letterSpacing: 1.0,
-                              )))])),
+                        Align(alignment: Alignment.centerLeft, child: CircleAvatar(radius: 40, backgroundImage: NetworkImage(photoUrl))),
+                        Padding(padding: EdgeInsets.only(right: 10)),
+                        Align(alignment: Alignment.center, child: Text( name, style: TextStyle(
+                          color: Colors.black87, fontSize: 18.0, fontWeight: FontWeight.bold, letterSpacing: 1.0)))])),
                 SizedBox(height: 15),
                 GestureDetector(onTap: () {
                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyProfile()));
                 },
                     child: Container(decoration: BoxDecoration(
-                        boxShadow: [BoxShadow(color: Colors.cyan[700],
-                            blurRadius: 40.0, spreadRadius: 1.0,
-                            offset: Offset(2.0, 2.0))],
+                        boxShadow: [BoxShadow(color: Colors.cyan[700],blurRadius: 40.0, spreadRadius: 1.0,offset: Offset(2.0, 2.0))],
                         borderRadius: BorderRadius.all(Radius.circular(100.0),),
-                        gradient: LinearGradient(colors: <Color>[
-                          Colors.cyan[200], Colors.cyan[400]
-                        ])),
+                        gradient: LinearGradient(colors: <Color>[Colors.cyan[200], Colors.cyan[400]])),
                       child: ListTile(title: Text('Profile', style: TextStyle(
-                        color: Colors.black87, fontSize: 18.0,
-                        fontWeight: FontWeight.bold, letterSpacing: 1.0,
-                      )),
-                        leading: Icon(Icons.more),
-                      ))),
+                        color: Colors.black87, fontSize: 18.0, fontWeight: FontWeight.bold, letterSpacing: 1.0)),
+                          leading: Icon(Icons.more)))),
+                SizedBox(height: 25),
+                GestureDetector(onTap: () {}, child: Container(decoration: BoxDecoration(
+                        boxShadow: [BoxShadow(color: Colors.cyan[700], blurRadius: 40.0, spreadRadius: 1.0, offset: Offset(2.0, 2.0))],
+                        borderRadius: BorderRadius.all(Radius.circular(100.0),),
+                        gradient: LinearGradient(colors: <Color>[Colors.cyan[200], Colors.cyan[400]])),
+                    child: ListTile(title: Text('Notifications', style: TextStyle(color: Colors.black87, fontSize: 18.0,
+                        fontWeight: FontWeight.bold, letterSpacing: 1.0)), leading: Icon(Icons.notifications)))),
                 SizedBox(height: 25),
                 GestureDetector(onTap: () {},
-                    child: Container(decoration: BoxDecoration(
-                        boxShadow: [BoxShadow(color: Colors.cyan[700],
-                          blurRadius: 40.0, spreadRadius: 1.0,
-                            offset: Offset(2.0, 2.0))],
-                        borderRadius: BorderRadius.all(Radius.circular(100.0),),
-                        gradient: LinearGradient(colors: <Color>[
-                          Colors.cyan[200], Colors.cyan[400]])),
-
-                      child: ListTile(title: Text('Notifications', style: TextStyle(
-                        color: Colors.black87, fontSize: 18.0,
-                        fontWeight: FontWeight.bold, letterSpacing: 1.0)),
-                        leading: Icon(Icons.notifications),
-                      ))),
-                SizedBox(height: 25),
-                GestureDetector(onTap: () {},
-                  child: Container(decoration: BoxDecoration(
-                    boxShadow: [BoxShadow(color: Colors.cyan[700],
-                      blurRadius: 40.0, spreadRadius: 1.0,
-                        offset: Offset(2.0, 2.0))],
-                        borderRadius: BorderRadius.all(Radius.circular(100.0),),
-                        gradient: LinearGradient(colors: <Color>[
-                          Colors.cyan[200], Colors.cyan[400]])),
+                  child: Container(decoration: BoxDecoration(boxShadow: [BoxShadow(color: Colors.cyan[700],
+                      blurRadius: 40.0, spreadRadius: 1.0, offset: Offset(2.0, 2.0))],
+                      borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                      gradient: LinearGradient(colors: <Color>[Colors.cyan[200], Colors.cyan[400]])),
                     child: ListTile(title: Text('Settings', style: TextStyle(
-                      color: Colors.black87, fontSize: 18.0,
-                      fontWeight: FontWeight.bold, letterSpacing: 1.0)),
+                      color: Colors.black87, fontSize: 18.0, fontWeight: FontWeight.bold, letterSpacing: 1.0)),
                         leading: Icon(Icons.settings)))),
                 SizedBox(height: 25),
-                Container(decoration: BoxDecoration(boxShadow: [BoxShadow(
-                  color: Colors.cyan[700], blurRadius: 40.0, spreadRadius: 1.0,
-                  offset: Offset(2.0, 2.0))],
+                Container(decoration: BoxDecoration(boxShadow: [BoxShadow(color: Colors.cyan[700],
+                    blurRadius: 40.0, spreadRadius: 1.0, offset: Offset(2.0, 2.0))],
                       borderRadius: BorderRadius.all(Radius.circular(100.0),),
-                      gradient: LinearGradient(colors: <Color>[
-                        Colors.cyan[200], Colors.cyan[400]])),
+                      gradient: LinearGradient(colors: <Color>[Colors.cyan[200], Colors.cyan[400]])),
                     child: GestureDetector(onTap: () async {
                         final action = await Dialogs.yesAbortDialog(context, 'Exit Alert', 'Are you sure you want to Exit?');
                       },
-                      child: ListTile(title: Text('Exit', style: TextStyle(
-                        color: Colors.black87, fontSize: 18.0,
-                        fontWeight: FontWeight.bold, letterSpacing: 1.0,
+                        child: ListTile(title: Text('Exit', style: TextStyle(
+                        color: Colors.black87, fontSize: 18.0, fontWeight: FontWeight.bold, letterSpacing: 1.0,
                       )),
-                        leading: Icon(Icons.exit_to_app))))]))),
+                            leading: Icon(Icons.exit_to_app))))]))),
           body: TabBarView(children: <Widget>[
                 Contacts(),
                 Groups(),
