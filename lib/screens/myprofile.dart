@@ -61,73 +61,25 @@ class _MyProfileState extends State<MyProfile> {
             secondaryActions: <Widget>[IconSlideAction(caption: 'Edit', color: PrimaryColor, icon: Icons.mode_edit,
               onTap: () {},
             )]),
-
-              SizedBox(height: 30),
-
-              Slidable(
-                actionPane: SlidableDrawerActionPane(),
-                actionExtentRatio: 0.25,
-                child: Container(
-                    height: 60,
-                    margin: EdgeInsets.only(left: 100, right: 20),
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.cyan[700],
-                          blurRadius: 40.0,
-                          spreadRadius: 1.0,
-                          offset: Offset(
-                            2.0,
-                            2.0,
-                          ),
-                        )
-                      ],
-                      borderRadius: BorderRadius.all(Radius.circular(100.0),),
-                      gradient: LinearGradient(colors: <Color>[
-                        Colors.cyan[200],
-                        Colors.cyan[400]
-                      ]),
-                    ),
-                    child: ListTile(leading: Icon(Icons.slideshow),
-                      trailing: Icon(FontAwesomeIcons.slidersH),
-                      title: Text('Email Id',style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold ),
-                        textAlign: TextAlign.center,),
-                      subtitle: Text(email
-                          , style: TextStyle(fontSize: 15.0), textAlign: TextAlign.center),
-                    )),
-                actions: <Widget>[
-                  IconSlideAction(caption: 'Edit', color: PrimaryColor, icon: Icons.mode_edit)],
-              ),
-              SizedBox(height: 30),
-              Slidable(actionPane: SlidableDrawerActionPane(), actionExtentRatio: 0.25,
-                child: Container(
-                    height: 60,
-                    margin: EdgeInsets.only(left: 20, right: 100),
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.cyan[700],
-                          blurRadius: 40.0, // soften the shadow
-                          spreadRadius: 1.0, //extend the shadow
-                          offset: Offset(
-                            2.0, // Move to right 10  horizontally
-                            2.0, // Move to bottom 10 Vertically
-                          ),
-                        )
-                      ],
-                      borderRadius: BorderRadius.all(Radius.circular(100.0),),
-                      gradient: LinearGradient(colors: <Color>[
-                        Colors.cyan[200],
-                        Colors.cyan[400]
-                      ]),
-                      // color: Colors.cyan[100],
-                    ),
-                    child: ListTile(trailing: Icon(Icons.slideshow),
-                      leading: Icon(FontAwesomeIcons.slidersH),
-                      title: Text('Contact Info',style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold ),
-                        textAlign: TextAlign.center,),
-                      subtitle: Text('9876543210', style: TextStyle(fontSize: 15.0), textAlign: TextAlign.center,),
-                    )),
+          SizedBox(height: 30),
+          Slidable(actionPane: SlidableDrawerActionPane(), actionExtentRatio: 0.25,
+            child: Container(height: 60, margin: EdgeInsets.only(left: 100, right: 20), decoration: BoxDecoration(boxShadow: [
+              BoxShadow(color: Colors.cyan[700], blurRadius: 40.0, spreadRadius: 1.0, offset: Offset(2.0, 2.0))],
+              borderRadius: BorderRadius.all(Radius.circular(100.0)),
+              gradient: LinearGradient(colors: <Color>[Colors.cyan[200], Colors.cyan[400]])),
+                child: ListTile(leading: Icon(Icons.slideshow), trailing: Icon(FontAwesomeIcons.slidersH),
+                  title: Text('Email Id',style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold ), textAlign: TextAlign.center),
+                    subtitle: Text(email, style: TextStyle(fontSize: 15.0), textAlign: TextAlign.center))),
+            actions: <Widget>[IconSlideAction(caption: 'Edit', color: PrimaryColor, icon: Icons.mode_edit)]),
+          SizedBox(height: 30),
+          Slidable(actionPane: SlidableDrawerActionPane(), actionExtentRatio: 0.25,
+            child: Container(height: 60, margin: EdgeInsets.only(left: 20, right: 100), decoration: BoxDecoration(boxShadow: [
+              BoxShadow(color: Colors.cyan[700], blurRadius: 40.0, spreadRadius: 1.0, offset: Offset(2.0, 2.0))],
+              borderRadius: BorderRadius.all(Radius.circular(100.0)),
+              gradient: LinearGradient(colors: <Color>[Colors.cyan[200], Colors.cyan[400]])),
+                child: ListTile(trailing: Icon(Icons.slideshow), leading: Icon(FontAwesomeIcons.slidersH),
+                  title: Text('Contact Info',style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold ), textAlign: TextAlign.center),
+                  subtitle: Text('9876543210', style: TextStyle(fontSize: 15.0), textAlign: TextAlign.center))),
 
                 secondaryActions: <Widget>[
                   IconSlideAction(
@@ -230,12 +182,7 @@ class _MyProfileState extends State<MyProfile> {
                         return _items;
                       }
                   )
-                  /* IconSlideAction(
-                   caption: 'Edit',
-                   color: PrimaryColor,
-                   icon: Icons.mode_edit,
-                   onTap: () {},
-                 ),*/
+
                 ],
               ),
 
