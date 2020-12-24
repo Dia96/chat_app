@@ -9,7 +9,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:location_permissions/location_permissions.dart';
+//import 'package:location_permissions/location_permissions.dart';
 
 class MainScreen extends StatefulWidget {
   @override
