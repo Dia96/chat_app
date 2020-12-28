@@ -75,8 +75,13 @@ class _GoogleScreenState extends State<GoogleScreen> {
           children: <Widget>[
             Container(child: GoogleMap(
               initialCameraPosition: CameraPosition(zoom: 15.0, target: LatLng(19.061500, 72.901056)),
+                markers: {
+                  Marker1,Marker2,Marker3,Marker4,Marker5,Marker6,Marker7,Marker8,Marker9
+                },
         onMapCreated: (GoogleMapController googleMapController) {setState(() {mapController = googleMapController;});
-              })),
+              }
+              )
+            ),
 
          Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),width: MediaQuery.of(context).size.width,
            child: SearchMapPlaceWidget(hasClearButton: true,
@@ -97,4 +102,85 @@ class _GoogleScreenState extends State<GoogleScreen> {
     );
   }
 }
+
+Marker Marker1 = Marker(
+  markerId: MarkerId('Vasai'),
+  position: LatLng(26.7606, 83.3732),
+  //position: LatLng(40.738380, -73.988426),
+  infoWindow: InfoWindow(title: 'Maria'),
+  icon: BitmapDescriptor.defaultMarkerWithHue(
+    BitmapDescriptor.hueBlue,
+  ),
+);
+
+Marker Marker2 = Marker(
+  markerId: MarkerId('Vishakhapatnam'),
+  position: LatLng(23.2599, 83.2185),
+  infoWindow: InfoWindow(title: 'James'),
+  icon: BitmapDescriptor.defaultMarkerWithHue(
+    BitmapDescriptor.hueBlue,
+  ),
+);
+Marker Marker3 = Marker(
+  markerId: MarkerId('Gulbarga'),
+  position: LatLng(17.3297, 76.8343),
+  infoWindow: InfoWindow(title: 'S Hegde'),
+  icon: BitmapDescriptor.defaultMarkerWithHue(
+    BitmapDescriptor.hueBlue,
+  ),
+);
+
+Marker Marker4 = Marker(
+  markerId: MarkerId('Kerala'),
+  position: LatLng(10.8505, 76.2711),
+  infoWindow: InfoWindow(title: 'Peterson'),
+  icon: BitmapDescriptor.defaultMarkerWithHue(
+    BitmapDescriptor.hueBlue,
+  ),
+);
+Marker Marker5 = Marker(
+  markerId: MarkerId('Noida'),
+  position: LatLng(28.5355, 77.3910),
+  infoWindow: InfoWindow(title: 'Elda'),
+  icon: BitmapDescriptor.defaultMarkerWithHue(
+    BitmapDescriptor.hueBlue,
+  ),
+);
+Marker Marker6 = Marker(
+  markerId: MarkerId('Delhi'),
+  position: LatLng(32.2432, 77.1892),
+  infoWindow: InfoWindow(title: 'Bernadine'),
+  icon: BitmapDescriptor.defaultMarkerWithHue(
+    BitmapDescriptor.hueBlue,
+  ),
+);
+Marker Marker7 = Marker(
+  markerId: MarkerId('Chembur1'),
+  position: LatLng(19.061500, 72.901056),
+  infoWindow: InfoWindow(title: 'Rehan'),
+  icon: BitmapDescriptor.defaultMarkerWithHue(
+    BitmapDescriptor.hueBlue,
+  ),
+);
+Marker Marker8 = Marker(
+  markerId: MarkerId('Chembur2'),
+  position: LatLng(19.057227, 72.906424),
+  infoWindow: InfoWindow(title: 'Shrusti'),
+  icon: BitmapDescriptor.defaultMarkerWithHue(
+    BitmapDescriptor.hueBlue,
+  ),
+);
+Marker Marker9 = Marker(
+  markerId: MarkerId('Indore'),
+  position: LatLng(22.7196, 75.8577),
+  infoWindow: InfoWindow(title: 'Stanley'),
+  icon: BitmapDescriptor.defaultMarkerWithHue(
+    BitmapDescriptor.hueBlue,
+  ),
+);
+
+
+
+
+
 
