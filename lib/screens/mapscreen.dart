@@ -61,19 +61,6 @@ class GoogleScreenState extends State<GoogleScreen> {
 
         ),
 
-
-       /* GoogleMap(
-            mapType: MapType.normal,
-            initialCameraPosition: _initialposition,
-            onMapCreated: (GoogleMapController controller) {
-              _controller.complete(controller);
-            },
-            markers: {
-              Marker1,Marker2,Marker3,Marker4,Marker5,Marker6,Marker7,Marker8,Marker9
-            },
-            myLocationEnabled: true,
-          ),
-        */
         floatingActionButton: BoomMenu(
             fabAlignment: Alignment.bottomCenter,
             elevation: 10, animatedIcon: AnimatedIcons.menu_close,

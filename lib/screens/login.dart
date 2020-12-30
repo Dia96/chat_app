@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:chat_app/main.dart';
 import 'package:chat_app/screens/mainscreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -85,7 +87,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       Colors.indigo,
                     ],
                     textAlign: TextAlign.start,
-                )),
+                )
+              ),
               SizedBox(height: 20),
               Container(margin: EdgeInsets.only(left: 50, right: 50),height: 50,
                 decoration: BoxDecoration(color: Colors.white,
@@ -97,7 +100,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     GestureDetector(onTap: () => googleSignIn().whenComplete(()
                     async {
                       
-                      await FirebaseFirestore.instance.collection('user').where('email', isEqualTo: email).limit(1).get();
+                      await FirebaseFirestore.instance.collection('user').where('email', isEqualTo: email).limit(1).get().
+                      then((value) => {
+                        'email' : email,
+                      });
                       
                      /* await  FirebaseFirestore.instance.collection("user").add(
                               {'email': email,
@@ -119,6 +125,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     Padding(padding: EdgeInsets.only(left: 15)),
                     Text('Sign in with iOS',style: TextStyle(fontSize: 18),)
                   ],
-                ))]));
-  }}
+                )
+              )
+            ]
+        )
+    );
+  }
+}
 
