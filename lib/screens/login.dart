@@ -43,7 +43,8 @@ class _LoginScreenState extends State<LoginScreen> {
       name = user.displayName;
       email = user.email;
       photoUrl = user.photoURL;
-    });
+    }
+    );
 
     final User currentUser = _firebaseAuth.currentUser;
     assert(currentUser.uid == user.uid);
@@ -58,7 +59,11 @@ class _LoginScreenState extends State<LoginScreen> {
           body: Center(child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[_GoogleSignInButton()],
-            ))));}
+            )
+          )
+        )
+    );
+  }
 
   _GoogleSignInButton() {
 
@@ -103,7 +108,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       await FirebaseFirestore.instance.collection('user').where('email', isEqualTo: email).limit(1).get().
                       then((value) => {
                         'email' : email,
-                      });
+                      }
+                      );
                       
                      /* await  FirebaseFirestore.instance.collection("user").add(
                               {'email': email,
@@ -114,7 +120,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainScreen()));
                         }),
                         child: Text('Sign in with Google', style: TextStyle(fontSize: 18),))
-                  ],),),
+                  ],
+                ),
+              ),
               SizedBox(height: 20,),
               Container(margin: EdgeInsets.only(left: 50, right: 50), height: 50,
                 decoration: BoxDecoration(color: Colors.white,

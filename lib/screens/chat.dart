@@ -135,7 +135,7 @@ class ChatScreenState extends State<ChatScreen> {
                   ),
                 ),
 
-                SizedBox(height: 20,),
+                SizedBox(height: 20),
 
                 Container(
                   decoration: BoxDecoration(

@@ -36,201 +36,140 @@ class _MainScreenState extends State<MainScreen>
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
 
-    return Scaffold(
-      resizeToAvoidBottomPadding: false, backgroundColor: Colors.cyan[800],
-      floatingActionButton: CircularMenu(
-        animationDuration: Duration(milliseconds: 10),
-        toggleButtonPadding: 10, alignment: Alignment.bottomCenter,
-        curve: Curves.fastOutSlowIn,
-        toggleButtonBoxShadow: [BoxShadow(color: Colors.cyan[400],
-              spreadRadius: 2, blurRadius: 5)],
-        toggleButtonIconColor: PrimaryColor,
-        toggleButtonColor: SecondaryColor, items: [
-          CircularMenuItem(icon: Icons.info,
-              boxShadow: [BoxShadow(color: Colors.cyan[400], spreadRadius: 2,
-                    blurRadius: 5)],
+    return Scaffold(resizeToAvoidBottomPadding: false, backgroundColor: Colors.cyan[800],
+      floatingActionButton: CircularMenu(animationDuration: Duration(milliseconds: 10),
+        toggleButtonPadding: 10, alignment: Alignment.bottomCenter, curve: Curves.fastOutSlowIn,
+        toggleButtonBoxShadow: [BoxShadow(color: Colors.cyan[400], spreadRadius: 2, blurRadius: 5)],
+        toggleButtonIconColor: PrimaryColor, toggleButtonColor: SecondaryColor, items: [
+          CircularMenuItem(icon: Icons.info, boxShadow: [BoxShadow(color: Colors.cyan[400], spreadRadius: 2, blurRadius: 5)],
               color: SecondaryColor, iconColor: PrimaryColor,
-              onTap: () {}),
-          CircularMenuItem(icon: Icons.settings, boxShadow: [
-            BoxShadow(color: Colors.cyan[400], spreadRadius: 2, blurRadius: 5)],
+              onTap: () {}
+              ),
+          CircularMenuItem(icon: Icons.settings, boxShadow: [BoxShadow(color: Colors.cyan[400], spreadRadius: 2, blurRadius: 5)],
               color: SecondaryColor, iconColor: PrimaryColor,
               onTap: () {
                 //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SettingScreen()));
-              }),
-
-          CircularMenuItem(icon: Icons.rate_review, boxShadow: [
-            BoxShadow(color: Colors.cyan[400], spreadRadius: 2,blurRadius: 5)],
+          }
+          ),
+          CircularMenuItem(icon: Icons.rate_review, boxShadow: [BoxShadow(color: Colors.cyan[400], spreadRadius: 2,blurRadius: 5)],
               color: SecondaryColor, iconColor: PrimaryColor,
-              onTap: () {}),
-
-          CircularMenuItem(icon: Icons.report_problem,
-              boxShadow: [BoxShadow(color: Colors.cyan[400], spreadRadius: 2, blurRadius: 5)],
+              onTap: () {}
+              ),
+          CircularMenuItem(icon: Icons.report_problem, boxShadow: [BoxShadow(color: Colors.cyan[400], spreadRadius: 2, blurRadius: 5)],
               color: SecondaryColor, iconColor: PrimaryColor,
-              onTap: () {}),
-          CircularMenuItem(icon: Icons.exit_to_app,
-            boxShadow: [BoxShadow(color: Colors.cyan[400], spreadRadius: 2, blurRadius: 5)],
+              onTap: () {}
+              ),
+          CircularMenuItem(icon: Icons.exit_to_app, boxShadow: [BoxShadow(color: Colors.cyan[400], spreadRadius: 2, blurRadius: 5)],
             color: SecondaryColor, iconColor: PrimaryColor,
-            onTap: () => exit(0),),],),
+            onTap: () => exit(0),
+          ),
+        ],
+      ),
 
       body: Column(children: <Widget>[
-          Stack(alignment: Alignment.center,
-            children: [AnimatedBuilder(animation: _controller,
-                builder: (BuildContext context, Widget child) {
-                  return ClipPath(clipper: DrawClip(_controller.value),
-                    child: Container(height: size.height * 0.5,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                            begin: Alignment.bottomLeft, end: Alignment.topRight,
-                            colors: [SecondaryColor, Colors.cyan[800]]),
+        Stack(alignment: Alignment.center, children: [
+          AnimatedBuilder(animation: _controller, builder: (BuildContext context, Widget child) {
+            return ClipPath(clipper: DrawClip(_controller.value), child:
+             Container(height: size.height * 0.5, decoration: BoxDecoration(gradient: LinearGradient(
+                begin: Alignment.bottomLeft, end: Alignment.topRight, colors: [SecondaryColor, Colors.cyan[800]
+             ]
+            ),
                       ),
                     ),
                   );
                 },
               ),
-              Container(
-                child: Text(
-                  'Choose from the options below ',
-                  style: TextStyle(
-                      color: TertiaryColor,
-                      fontSize: 46,
-                      fontWeight: FontWeight.bold),
+          Container(child: Text('Choose from the options below ', style:
+          TextStyle(color: TertiaryColor, fontSize: 46, fontWeight: FontWeight.bold),
+          ),
+          ),
+        ],
+        ),
+        RaisedButton(onPressed: () { signOut();
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+          },
+            child: Text('Sign Out'), color: SecondaryColor),
+
+        Expanded(child: GridView.count(crossAxisCount: 2, crossAxisSpacing: 10.0, mainAxisSpacing: 10.0, shrinkWrap: true,
+          children: <Widget>[
+            Stack(children: <Widget>[
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen())
+                  );
+                  },
+                child: Container( height: 150, width: 200, decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                  gradient: LinearGradient(colors: <Color>[Colors.cyan[100], Colors.cyan[700]]
+                  ),
+                ),
+                  child: Text('CHAT', style: TextStyle( color: Colors.grey[800], fontWeight: FontWeight.bold,
+                      fontSize: 30)), alignment: Alignment.bottomCenter,
                 ),
               ),
-
-            ],
-          ),
-
-          RaisedButton(onPressed: () {
-            signOut();
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
-          },
-            // padding: EdgeInsets.only(bottom: 10),
-            child: Text('Sign Out'),
-            color: SecondaryColor,),
-
-          Expanded(child: GridView.count(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10.0,
-            mainAxisSpacing: 10.0,
-            shrinkWrap: true,
-            children: <Widget>[
-              Stack(
-                children: <Widget>[
-
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
-                    },
-                    child: Container(
-                      height: 150,
-                      width: 200,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(100.0),),
-                        gradient: LinearGradient(colors: <Color>[
-                          Colors.cyan[100],
-                          Colors.cyan[700]
-                        ]),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen())
+                  );
+                  },
+                child: Align( alignment: Alignment.topCenter,
+                  child: Container( height: 90, width: 70, decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                      gradient: LinearGradient(colors: <Color>[ Colors.white, Colors.grey]
                       ),
-                      child: Text('CHAT', style: TextStyle(
-                          color: Colors.grey[800],
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30)),
-                      alignment: Alignment.bottomCenter,
-                    ),
+                      image: DecorationImage(image: AssetImage('images/logo.png'), fit: BoxFit.cover)
                   ),
-
-
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
-                    },
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: Container(
-                        height: 90,
-                        width: 70,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(100.0),),
-                            gradient: LinearGradient(colors: <Color>[
-                              Colors.white,
-                              Colors.grey
-                            ]),
-                            image: DecorationImage(image: AssetImage('images/logo.png'),
-                              fit: BoxFit.cover,
-                            )
-                        ),
-                      ),
-                    ),
                   ),
-                ],
+                ),
               ),
-
-              Stack(
-                children: <Widget>[
-
-                  GestureDetector(
-                    onTap: () {
-                     Navigator.pushReplacement(context,
-                         MaterialPageRoute(builder: (context) => GoogleScreen()));
-                    },
-                    child: Container(height: 150, width: 200,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(100.0),),
-                        gradient: LinearGradient(colors: <Color>[
-                          Colors.cyan[100],
-                          Colors.cyan[700]]),),
-                      child: Text('LOCATE', style: TextStyle(
-                          color: Colors.grey[800], fontWeight: FontWeight.bold,
-                          fontSize: 30)),
-                      alignment: Alignment.bottomCenter,
-                    ),
-                  ),
-
-                  GestureDetector(
-                    onTap: () {
-
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => GoogleScreen()));
-                    },
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: Container(
-                        height: 90,
-                        width: 70,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(100.0),),
-                            gradient: LinearGradient(colors: <Color>[
-                              Colors.white,
-                              Colors.grey
-                            ]),
-                            // color: Colors.cyan[100],
-                            image: DecorationImage(image: AssetImage('images/locationlogo.png'),
-                              fit: BoxFit.cover,
-                            )
-                        ),
-                      ),
-                    ),
-                  ),
-
-
-                ],
-              ),
-
-
             ],
-          ))
-        ],
+            ),
+            Stack( children: <Widget>[
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => GoogleScreen())
+                  );
+                  },
+                child: Container(height: 150, width: 200, decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                  gradient: LinearGradient(colors: <Color>[Colors.cyan[100], Colors.cyan[700]
+                  ]
+                  ),
+                ),
+                  child: Text('LOCATE', style: TextStyle(color: Colors.grey[800], fontWeight: FontWeight.bold, fontSize: 30)),
+                  alignment: Alignment.bottomCenter),
+              ),
+              GestureDetector( onTap: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => GoogleScreen())
+                );
+                },
+                child: Align(alignment: Alignment.topCenter,
+                  child: Container(height: 90, width: 70, decoration:
+                  BoxDecoration( borderRadius: BorderRadius.all(Radius.circular(100.0)
+                  ),
+                      gradient: LinearGradient(colors: <Color>[ Colors.white, Colors.grey]
+                      ),
+                      image: DecorationImage(image: AssetImage('images/locationlogo.png'), fit: BoxFit.cover,
+                      )
+                  ),
+                  ),
+                ),
+              ),
+            ],
+            ),
+          ],
+        )
+        )
+      ],
       ),
     );
   }
 }
 
-class DrawClip extends CustomClipper<Path> {
-  double move = 0; double slice = math.pi; DrawClip(this.move);
+class DrawClip extends CustomClipper<Path> { double move = 0; double slice = math.pi; DrawClip(this.move);
   @override
   Path getClip(Size size) {Path path = Path();
     path.lineTo(0, size.height * 0.8);
-    double xCenter =
-        size.width * 0.5 + (size.width * 0.6 + 1) * math.sin(move * slice);
+    double xCenter = size.width * 0.5 + (size.width * 0.6 + 1) * math.sin(move * slice);
     double yCenter = size.height * 0.8 + 69 * math.cos(move * slice);
     path.quadraticBezierTo(xCenter, yCenter, size.width, size.height * 0.8);
     path.lineTo(size.width, 0);
@@ -238,7 +177,9 @@ class DrawClip extends CustomClipper<Path> {
   }
 
   @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {return true;
-  }}
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return true;
+  }
+}
 
 
