@@ -192,4 +192,3 @@ Marker Marker9 = Marker(
     BitmapDescriptor.hueBlue,
   ),
 );
-
