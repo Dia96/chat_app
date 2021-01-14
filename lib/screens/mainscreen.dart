@@ -104,14 +104,14 @@ class _MainScreenState extends State<MainScreen>
               ),
 
           Container(
-            padding: EdgeInsets.only(bottom: 120),
+            padding: EdgeInsets.only(bottom: 100),
             child: Text('CHAT APP', style: TextStyle(color: TertiaryColor, fontSize: 46, fontWeight: FontWeight.bold),),
           ),
 
 
           Container(
-            padding: EdgeInsets.only(top: 40, left: 45),
-            child: Text('Enjoy fast and real time messaging service',
+            padding: EdgeInsets.only(top: 1, left: 20),
+            child: Text('Powerful and secure',
               style: TextStyle(color: TertiaryColor, fontSize: 26, ),),
           ),
 
