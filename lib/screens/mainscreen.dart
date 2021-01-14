@@ -93,7 +93,7 @@ class _MainScreenState extends State<MainScreen>
         Stack(alignment: Alignment.center, children: [
           AnimatedBuilder(animation: _controller, builder: (BuildContext context, Widget child) {
             return ClipPath(clipper: DrawClip(_controller.value), child:
-             Container(height: size.height * 0.5, decoration: BoxDecoration(gradient: LinearGradient(
+             Container(height: size.height * 0.5 , decoration: BoxDecoration(gradient: LinearGradient(
                 begin: Alignment.bottomLeft, end: Alignment.topRight, colors: [SecondaryColor, Colors.cyan[800]
              ]
             ),
@@ -103,10 +103,18 @@ class _MainScreenState extends State<MainScreen>
                 },
               ),
 
-
           Container(
+            padding: EdgeInsets.only(bottom: 120),
             child: Text('CHAT APP', style: TextStyle(color: TertiaryColor, fontSize: 46, fontWeight: FontWeight.bold),),
           ),
+
+
+          Container(
+            padding: EdgeInsets.only(top: 40, left: 45),
+            child: Text('Enjoy fast and real time messaging service',
+              style: TextStyle(color: TertiaryColor, fontSize: 26, ),),
+          ),
+
         ],
     ),
 
