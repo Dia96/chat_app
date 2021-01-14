@@ -36,7 +36,30 @@ class _MainScreenState extends State<MainScreen>
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
 
-    return Scaffold(resizeToAvoidBottomPadding: false, backgroundColor: Colors.cyan[800],
+
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: PrimaryColor,
+
+        actions: <Widget> [
+        SizedBox(
+        width: 100.0,
+        height: 10.0,
+        child: OutlineButton(
+          borderSide: BorderSide(width: 0.5),
+          child: Text('Sign Out', style: TextStyle(color: Colors.black),),
+          onPressed:   () {
+            signOut();
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (context) => LoginScreen())
+            );
+          }
+      ),
+    ),
+    ],
+
+      ),
+      resizeToAvoidBottomPadding: false, backgroundColor: Colors.cyan[800],
       floatingActionButton: CircularMenu(animationDuration: Duration(milliseconds: 10),
         toggleButtonPadding: 10, alignment: Alignment.bottomCenter, curve: Curves.fastOutSlowIn,
         toggleButtonBoxShadow: [BoxShadow(color: Colors.cyan[400], spreadRadius: 2, blurRadius: 5)],
@@ -79,41 +102,45 @@ class _MainScreenState extends State<MainScreen>
                   );
                 },
               ),
-          Container(child: Text('Choose from the options below ', style:
-          TextStyle(color: TertiaryColor, fontSize: 46, fontWeight: FontWeight.bold),
-          ),
+
+
+          Container(
+            child: Text('CHAT APP', style: TextStyle(color: TertiaryColor, fontSize: 46, fontWeight: FontWeight.bold),),
           ),
         ],
-        ),
-        RaisedButton(onPressed: () { signOut();
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
-          },
-            child: Text('Sign Out'), color: SecondaryColor),
+    ),
 
-        Expanded(child: GridView.count(crossAxisCount: 2, crossAxisSpacing: 10.0, mainAxisSpacing: 10.0, shrinkWrap: true,
+        Expanded(child: GridView.count(
+          crossAxisCount: 2, crossAxisSpacing: 10.0, mainAxisSpacing: 10.0, shrinkWrap: true,
           children: <Widget>[
             Stack(children: <Widget>[
               GestureDetector(
-                onTap: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen())
-                  );
-                  },
-                child: Container( height: 150, width: 200, decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(100.0)),
-                  gradient: LinearGradient(colors: <Color>[Colors.cyan[100], Colors.cyan[700]]
+                  onTap: () {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen())
+                    );
+                    },
+                  child: Container(height: 120, width: 200,
+
+                    decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(50.0)
+                    ),
+                    gradient: LinearGradient(colors: <Color>[Colors.cyan[100], Colors.cyan[700]
+                    ]
+                    ),
+                  ),
+                    child: Text('CHAT', style: TextStyle( color: Colors.grey[800], fontWeight: FontWeight.bold,
+                        fontSize: 30)), alignment: Alignment.bottomCenter,
                   ),
                 ),
-                  child: Text('CHAT', style: TextStyle( color: Colors.grey[800], fontWeight: FontWeight.bold,
-                      fontSize: 30)), alignment: Alignment.bottomCenter,
-                ),
-              ),
+
               GestureDetector(
                 onTap: () {
                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen())
                   );
                   },
                 child: Align( alignment: Alignment.topCenter,
-                  child: Container( height: 90, width: 70, decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                  child: Container(
+                    height: 60, width: 70, decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(30.0)),
                       gradient: LinearGradient(colors: <Color>[ Colors.white, Colors.grey]
                       ),
                       image: DecorationImage(image: AssetImage('images/logo.png'), fit: BoxFit.cover)
@@ -129,8 +156,8 @@ class _MainScreenState extends State<MainScreen>
                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => GoogleScreen())
                   );
                   },
-                child: Container(height: 150, width: 200, decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                child: Container(height: 120, width: 200, decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(50.0)),
                   gradient: LinearGradient(colors: <Color>[Colors.cyan[100], Colors.cyan[700]
                   ]
                   ),
@@ -143,10 +170,11 @@ class _MainScreenState extends State<MainScreen>
                 );
                 },
                 child: Align(alignment: Alignment.topCenter,
-                  child: Container(height: 90, width: 70, decoration:
-                  BoxDecoration( borderRadius: BorderRadius.all(Radius.circular(100.0)
+                  child: Container(height: 60, width: 70, decoration:
+                  BoxDecoration( borderRadius: BorderRadius.all(Radius.circular(30.0)
                   ),
-                      gradient: LinearGradient(colors: <Color>[ Colors.white, Colors.grey]
+                      gradient: LinearGradient(
+                          colors: <Color>[ Colors.white, Colors.grey]
                       ),
                       image: DecorationImage(image: AssetImage('images/locationlogo.png'), fit: BoxFit.cover,
                       )
@@ -156,8 +184,12 @@ class _MainScreenState extends State<MainScreen>
               ),
             ],
             ),
+
+
           ],
-        )
+        ),
+
+
         )
       ],
       ),
@@ -165,7 +197,8 @@ class _MainScreenState extends State<MainScreen>
   }
 }
 
-class DrawClip extends CustomClipper<Path> { double move = 0; double slice = math.pi; DrawClip(this.move);
+class DrawClip extends CustomClipper<Path> {
+  double move = 0; double slice = math.pi; DrawClip(this.move);
   @override
   Path getClip(Size size) {Path path = Path();
     path.lineTo(0, size.height * 0.8);

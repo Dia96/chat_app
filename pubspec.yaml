@@ -52,6 +52,7 @@ dependencies:
   location_permissions: ^3.0.0+1
   provider: ^4.3.2+3
   firebase_database: ^4.4.0
+  geoflutterfire: ^2.2.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
