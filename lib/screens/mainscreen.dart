@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:chat_app/home/homescreen.dart';
 import 'package:chat_app/main.dart';
-import 'package:chat_app/screens/info.dart';
+import 'package:chat_app/screens/setting.dart';
 import 'package:chat_app/screens/login.dart';
 import 'package:chat_app/screens/mapscreen.dart';
 import 'package:circular_menu/circular_menu.dart';
@@ -60,7 +60,7 @@ class _MainScreenState extends State<MainScreen>
       resizeToAvoidBottomPadding: false, backgroundColor: Colors.cyan[800],
       floatingActionButton:
       CircularMenu(animationDuration: Duration(milliseconds: 10),
-        toggleButtonPadding: 10, alignment: Alignment.bottomCenter, curve: Curves.fastOutSlowIn,
+        toggleButtonPadding: 5.0, alignment: Alignment.bottomCenter, curve: Curves.fastOutSlowIn,
         toggleButtonBoxShadow: [BoxShadow(color: Colors.cyan[400], spreadRadius: 2, blurRadius: 5)],
         toggleButtonIconColor: PrimaryColor, toggleButtonColor: SecondaryColor, items: [
           CircularMenuItem(icon: Icons.settings, boxShadow: [BoxShadow(color: Colors.cyan[400], spreadRadius: 2, blurRadius: 5)],
@@ -126,16 +126,16 @@ class _MainScreenState extends State<MainScreen>
                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen())
                     );
                     },
-                  child: Container(height: 120, width: 200,
+                  child: Container(height: 105, width: 150,
 
-                    decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(50.0)
+                    decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(40.0)
                     ),
                     gradient: LinearGradient(colors: <Color>[Colors.cyan[100], Colors.cyan[700]
                     ]
                     ),
                   ),
                     child: Text('CHAT', style: TextStyle( color: Colors.grey[800], fontWeight: FontWeight.bold,
-                        fontSize: 30)), alignment: Alignment.bottomCenter,
+                        fontSize: 25)), alignment: Alignment.bottomCenter,
                   ),
                 ),
 
@@ -163,13 +163,13 @@ class _MainScreenState extends State<MainScreen>
                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => GoogleScreen())
                   );
                   },
-                child: Container(height: 120, width: 200, decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                child: Container(height: 105, width: 150, decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(40.0)),
                   gradient: LinearGradient(colors: <Color>[Colors.cyan[100], Colors.cyan[700]
                   ]
                   ),
                 ),
-                  child: Text('LOCATE', style: TextStyle(color: Colors.grey[800], fontWeight: FontWeight.bold, fontSize: 30)),
+                  child: Text('LOCATE', style: TextStyle(color: Colors.grey[800], fontWeight: FontWeight.bold, fontSize: 25)),
                   alignment: Alignment.bottomCenter),
               ),
               GestureDetector( onTap: () {
