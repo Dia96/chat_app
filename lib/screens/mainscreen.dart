@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:chat_app/home/homescreen.dart';
 import 'package:chat_app/main.dart';
+import 'package:chat_app/screens/info.dart';
 import 'package:chat_app/screens/login.dart';
 import 'package:chat_app/screens/mapscreen.dart';
 import 'package:circular_menu/circular_menu.dart';
@@ -40,14 +41,11 @@ class _MainScreenState extends State<MainScreen>
     return Scaffold(
       appBar: AppBar(
         backgroundColor: PrimaryColor,
-
         actions: <Widget> [
-        SizedBox(
-        width: 100.0,
-        height: 10.0,
-        child: OutlineButton(
+        SizedBox( width: 100.0,
+          child: OutlineButton(
           borderSide: BorderSide(width: 0.5),
-          child: Text('Sign Out', style: TextStyle(color: Colors.black),),
+          child: Text('Sign Out', style: TextStyle(color: Colors.white),),
           onPressed:   () {
             signOut();
             Navigator.pushReplacement(
@@ -60,26 +58,27 @@ class _MainScreenState extends State<MainScreen>
 
       ),
       resizeToAvoidBottomPadding: false, backgroundColor: Colors.cyan[800],
-      floatingActionButton: CircularMenu(animationDuration: Duration(milliseconds: 10),
+      floatingActionButton:
+      CircularMenu(animationDuration: Duration(milliseconds: 10),
         toggleButtonPadding: 10, alignment: Alignment.bottomCenter, curve: Curves.fastOutSlowIn,
         toggleButtonBoxShadow: [BoxShadow(color: Colors.cyan[400], spreadRadius: 2, blurRadius: 5)],
         toggleButtonIconColor: PrimaryColor, toggleButtonColor: SecondaryColor, items: [
-          CircularMenuItem(icon: Icons.info, boxShadow: [BoxShadow(color: Colors.cyan[400], spreadRadius: 2, blurRadius: 5)],
-              color: SecondaryColor, iconColor: PrimaryColor,
-              onTap: () {}
-              ),
           CircularMenuItem(icon: Icons.settings, boxShadow: [BoxShadow(color: Colors.cyan[400], spreadRadius: 2, blurRadius: 5)],
               color: SecondaryColor, iconColor: PrimaryColor,
               onTap: () {
-                //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SettingScreen()));
-          }
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SettingScreen()));
+                //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Info()));
+              }
+              ),
+          CircularMenuItem(
+              color: PrimaryColor, onTap: () {}
           ),
           CircularMenuItem(icon: Icons.rate_review, boxShadow: [BoxShadow(color: Colors.cyan[400], spreadRadius: 2,blurRadius: 5)],
               color: SecondaryColor, iconColor: PrimaryColor,
               onTap: () {}
               ),
-          CircularMenuItem(icon: Icons.report_problem, boxShadow: [BoxShadow(color: Colors.cyan[400], spreadRadius: 2, blurRadius: 5)],
-              color: SecondaryColor, iconColor: PrimaryColor,
+          CircularMenuItem(
+              color: PrimaryColor,
               onTap: () {}
               ),
           CircularMenuItem(icon: Icons.exit_to_app, boxShadow: [BoxShadow(color: Colors.cyan[400], spreadRadius: 2, blurRadius: 5)],
@@ -205,14 +204,36 @@ class _MainScreenState extends State<MainScreen>
   }
 }
 
+class Info extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+   return WillPopScope(
+     onWillPop: () {
+       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainScreen())
+       );
+     },
+     child: Scaffold(
+       backgroundColor: SecondaryColor,
+       appBar: AppBar(
+         backgroundColor: PrimaryColor,
+       ),
+       body: Container(
+         color: SecondaryColor,
+         child: Text('Privacy Policy')
+       ),
+     ),
+   );
+  }
+}
+
 class DrawClip extends CustomClipper<Path> {
   double move = 0; double slice = math.pi; DrawClip(this.move);
   @override
   Path getClip(Size size) {Path path = Path();
-    path.lineTo(0, size.height * 0.8);
-    double xCenter = size.width * 0.5 + (size.width * 0.6 + 1) * math.sin(move * slice);
-    double yCenter = size.height * 0.8 + 69 * math.cos(move * slice);
-    path.quadraticBezierTo(xCenter, yCenter, size.width, size.height * 0.8);
+    path.lineTo(0, size.height * 0.7);
+    double xCenter = size.width * 0.4 + (size.width * 0.5 + 1) * math.sin(move * slice);
+    double yCenter = size.height * 0.7 + 69 * math.cos(move * slice);
+    path.quadraticBezierTo(xCenter, yCenter, size.width, size.height * 0.7);
     path.lineTo(size.width, 0);
     return path;
   }
